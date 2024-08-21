@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Button, Box } from '@mui/material';
 import { useSelector,useDispatch } from 'react-redux';
 import { logout } from './features/user/userSlice';
-// import SearchInput from './components/SearchInput';
+import SearchInput from './components/SearchInput';
  import WeatherDisplay from './components/WeatherDisplay';
 import Login from './components/Login';
 
@@ -29,7 +29,7 @@ const App: React.FC = () => {
             >
               Logout
             </Button>
-            {/* <SearchInput /> */}
+            <SearchInput />
             <WeatherDisplay />
           </>
         ) : (

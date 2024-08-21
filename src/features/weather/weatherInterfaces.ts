@@ -1,20 +1,20 @@
 export interface WeatherParams {
-    lat: number;
-    lon: number;
-    city: string;
+        city: string;
   }
   
   export interface WeatherResponse {
-    current: {
+    main: {
       temp: number;
       humidity: number;
-      wind_speed: number;
-      weather: Array<{
-        description: string;
-        icon: string;
-      }>;
     };
-    lat: number;
-    lon: number;
-    timezone: string;
+    wind: {
+      speed: number;
+    };
+    weather: Array<{
+      description: string;
+      icon: string;
+    }>;
+    name: string; // City name
+    timezone: number; // Timezone offset in seconds
   }
+  

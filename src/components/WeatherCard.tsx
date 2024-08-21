@@ -7,10 +7,11 @@ interface WeatherCardProps {
 }
 
 const WeatherCard: React.FC<WeatherCardProps> = ({ weatherData }) => {
-  const { current } = weatherData;
-  const { temp, humidity, wind_speed, weather } = current;
+  const { main,weather,wind } = weatherData;
+  const { temp, humidity } = main;
   const weatherDescription = weather[0]?.description || 'No description';
   const weatherIcon = weather[0]?.icon || '';
+  const {speed} = wind;
 
   return (
     <Card sx={{ marginBottom: 2 }}>
@@ -27,7 +28,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weatherData }) => {
           )}
         </Box>
         <Typography>Humidity: {humidity}%</Typography>
-        <Typography>Wind Speed: {wind_speed} m/s</Typography>
+        <Typography>Wind Speed: {speed} m/s</Typography>
         <Typography>Description: {weatherDescription}</Typography>
       </CardContent>
     </Card>
