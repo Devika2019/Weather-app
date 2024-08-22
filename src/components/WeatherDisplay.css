@@ -14,6 +14,7 @@
 .weather-card-row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   overflow-x: auto; /* Allows horizontal scrolling if needed */
   width: 100%;
   gap: 16px; /* Adds spacing between cards */
@@ -24,14 +25,20 @@
   max-width: 300px; /* Adjust based on your card size */
 }
 
-.weather-carousel .slick-slide {
-  padding: 0 10px; /* Adjust spacing between carousel items */
-}
-
-.weather-carousel .slick-dots {
-  bottom: -30px; /* Adjust the position of dots as needed */
-}
-
 .weather-carousel {
   width: 100%; /* Ensures carousel takes up full width */
+}
+
+.slick-prev, .slick-next {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  z-index: 1; /* Ensures arrows are on top */
+}
+
+.slick-prev {
+  left: 10px; /* Position of the previous arrow */
+}
+
+.slick-next {
+  right: 10px; /* Position of the next arrow */
 }

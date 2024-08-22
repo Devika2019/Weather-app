@@ -5,6 +5,15 @@ import WeatherCard from './WeatherCard';
 import Slider from 'react-slick';
 import './WeatherDisplay.css';
 
+// Custom Arrow Component
+const Arrow = ({ className, style, onClick }: any) => (
+  <div
+    className={className}
+    style={{ ...style, display: 'block', background: 'black', borderRadius: '50%' }}
+    onClick={onClick}
+  />
+);
+
 const WeatherDisplay: React.FC = () => {
   const weatherData = useSelector((state: any) => state.weather.data);
   const loading = useSelector((state: any) => state.weather.loading);
@@ -14,11 +23,13 @@ const WeatherDisplay: React.FC = () => {
   if (error) return <Typography color="error">{error}</Typography>;
 
   const settings = {
-    dots: true,
+    dots: false, // Disable dots
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    nextArrow: <Arrow className="slick-next" />,
+    prevArrow: <Arrow className="slick-prev" />,
     responsive: [
       {
         breakpoint: 1024,
@@ -26,7 +37,7 @@ const WeatherDisplay: React.FC = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
