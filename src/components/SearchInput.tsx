@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Box, FormControlLabel, Checkbox, Autocomplete, Typography, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from '../store';
+import { AppDispatch, RootState } from '../store';
 import { fetchWeather, addCityWeather, removeCityWeather } from '../features/weather/weatherSlice';
 import { WeatherParams, WeatherResponse } from '../features/weather/weatherInterfaces';
 import { loadCountries, loadCities } from '../features/countries/countriesSlice';
@@ -12,10 +12,10 @@ const SearchInput: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<string[] | null>(null);
   const [selectedCities, setSelectedCities] = useState<string[]>([]);
   const dispatch = useDispatch();
-  const weatherData = useSelector((state: any) => state.weather.data || {});
-  const countries = useSelector((state: any) => state.countries.countries);
+  const weatherData = useSelector((state: RootState) => state.weather.data || {});
+  const countries = useSelector((state: RootState) => state.countries.countries);
   const isCitySelected = (cityName: string) => selectedCities.includes(cityName);
-  const citiesByCountry = useSelector((state: any) => state.countries.citiesByCountry);
+  const citiesByCountry = useSelector((state: RootState) => state.countries.citiesByCountry);
 
   useEffect(() => {
     (dispatch as AppDispatch)(loadCountries());
