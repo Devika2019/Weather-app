@@ -20,7 +20,7 @@ Any Integrated Development Environments (IDEs) preferably Visual Studio Code.
 
 3. Configure Environment Variables
 
-    This project has environment variables in .env file. It contains the API key for fetching the data. Please ensure that this is in place.
+    API key for fetching the data is in the .env file. Please ensure that this is in place.
 
 4. Check the tsconfig.json
 
@@ -36,7 +36,7 @@ Any Integrated Development Environments (IDEs) preferably Visual Studio Code.
 
     `npm -v`
 
-    If Node.js is installed, you can proceed to install the project's dependencies:
+    If Node.js is installed, proceed to install the project's dependencies:
    
     `npm install`
 
