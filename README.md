@@ -51,6 +51,15 @@ Any Integrated Development Environments (IDEs) preferably Visual Studio Code.
 
 ## Explanation of design choices and architecture
 
+In designing the Weather App, I prioritized a modular and scalable architecture to ensure an optimal user experience and maintainability. 
+- ReactJS was chosen for its component-based structure, which facilitates reusable and isolated components, essential for managing the dynamic nature of the app's UI elements such as dropdown menus, city checkboxes, and weather information displays.
+- TypeScript enhances this setup with strong typing, improving code reliability and easing debugging.
+- Node.js serves as the backend environment, providing a robust platform for handling asynchronous operations and API requests efficiently.
+- Redux is employed for state management to centralize and streamline state transitions, crucial for synchronizing user interactions with weather data updates.
+- MaterialUI was selected to deliver a modern and responsive design while ensuring consistency across the application.
+- Jest is utilized for testing to ensure the robustness of our components and logic, enabling us to catch issues early in the development cycle. 
+
+This combination of technologies and practices ensures a responsive, maintainable, and user-friendly Weather App that adapts to varying user interactions and data loads effectively.
 
 ## Instructions on how to run tests
 
