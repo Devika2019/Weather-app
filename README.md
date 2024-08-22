@@ -2,7 +2,7 @@
 ## Overview
 The Weather App begins with a login page where users enter their username and click a submit button. Upon successful login, users are directed to the weather page, featuring two dropdown menus. The first dropdown allows users to search for and select a country, which then populates the second dropdown with cities from that country. Users can select one or multiple cities, and each selected city appears below with a checkbox. The checkbox can be toggled to show or hide the weather information for that city. When more than three cities are selected, the weather information is displayed in a carousel format, allowing horizontal scrolling. If three or fewer cities are selected, the carousel is hidden, and the weather information is shown in a standard view. Upon logging off, all results are cleared, and a fresh page is presented for each new login, initiating the selection process anew.
 
-## Sofware requirement
+## Sofware requirements
 Any Integrated Development Environments (IDEs) preferably Visual Studio Code.
 
 ## Steps to set up and run the project locally
@@ -50,7 +50,7 @@ Any Integrated Development Environments (IDEs) preferably Visual Studio Code.
 
     Open [http://localhost:3000](http://localhost:3000) to view it in the browser to see if the app is running correctly.
 
-## Explanation of design choices and architecture
+## Design choice and architecture
 
 In designing the Weather App, modular and scalable architecture was prioritized to ensure an optimal user experience and maintainability. 
 - ReactJS was chosen for its component-based structure, which facilitates reusable and isolated components, essential for managing the dynamic nature of the app's UI elements such as dropdown menus, city checkboxes, and weather information displays.
