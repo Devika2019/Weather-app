@@ -1,4 +1,5 @@
-# Overview of the Weather App project
+# Weather App project
+## Overview
 The Weather App begins with a login page where users enter their username and click a submit button. Upon successful login, users are directed to the weather page, featuring two dropdown menus. The first dropdown allows users to search for and select a country, which then populates the second dropdown with cities from that country. Users can select one or multiple cities, and each selected city appears below with a checkbox. The checkbox can be toggled to show or hide the weather information for that city. When more than three cities are selected, the weather information is displayed in a carousel format, allowing horizontal scrolling. If three or fewer cities are selected, the carousel is hidden, and the weather information is shown in a standard view. Upon logging off, all results are cleared, and a fresh page is presented for each new login, initiating the selection process anew.
 
 ## Sofware requirement
