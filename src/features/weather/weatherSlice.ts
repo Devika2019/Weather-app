@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchWeather as fetchWeatherService } from '../../services/weatherService';
 import { WeatherParams, WeatherResponse } from './weatherInterfaces';
+import { logout } from '../user/userSlice'; // Adjust the import path as necessary
 
-interface WeatherState {
+export interface WeatherState {
   data: { [city: string]: WeatherResponse } | null;
   loading: boolean;
   error: string | null;
@@ -40,6 +41,9 @@ const weatherSlice = createSlice({
         delete state.data[city];
       }
     },
+    clearWeatherData: (state) => {
+      state.data = {};
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -59,10 +63,13 @@ const weatherSlice = createSlice({
       .addCase(fetchWeather.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || 'Failed to fetch weather data';
+      })
+      .addCase(logout, (state) => {
+        state.data = {}; // Clear weather data on logout
       });
   },
 });
 
-export const { addCityWeather, removeCityWeather } = weatherSlice.actions;
+export const { addCityWeather, removeCityWeather, clearWeatherData } = weatherSlice.actions;
 
 export default weatherSlice.reducer;
