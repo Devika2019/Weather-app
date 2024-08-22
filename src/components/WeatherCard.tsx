@@ -22,7 +22,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weatherData }) => {
           {weatherIcon && (
             <img
               src={`http://openweathermap.org/img/wn/${weatherIcon}.png`}
-              alt={weatherDescription}
+              alt=''
               style={{ marginLeft: 10 }}
             />
           )}
