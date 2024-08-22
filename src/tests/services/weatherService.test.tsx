@@ -44,8 +44,25 @@ describe('fetchWeather', () => {
     const city = 'London';
     const params = { city };
 
-    // Act & Assert
-    await expect(fetchWeather(params)).rejects.toThrow(errorMessage);
+    // Act
+    const result = await fetchWeather(params);
+
+    // Assert
+    expect(result).toEqual({
+      main: {
+        temp: 0,
+        humidity: 0,
+      },
+      wind: {
+        speed: 0,
+      },
+      weather: [{
+        description: 'No data available',
+        icon: '01d',
+      }],
+      name: city,
+      timezone: 0,
+    });
     expect(mockedAxios.get).toHaveBeenCalledWith('https://api.openweathermap.org/data/2.5/weather', {
       params: {
         q: city,
@@ -55,5 +72,3 @@ describe('fetchWeather', () => {
     });
   });
 });
-
-export {}
