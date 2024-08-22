@@ -9,8 +9,9 @@ export const fetchWeather = async ({ city }: WeatherParams): Promise<WeatherResp
   try {
     const response = await axios.get<WeatherResponse>(API_BASE_URL, {
       params: {
-        q: city, // Update parameter to 'q' as per OpenWeatherMap API
+        q: city, 
         appid: API_KEY,
+        units: 'metric',
       },
     });
     return response.data;
