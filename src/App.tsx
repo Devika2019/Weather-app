@@ -7,6 +7,7 @@ import SearchInput from './components/SearchInput';
 import WeatherDisplay from './components/WeatherDisplay';
 import Login from './components/Login';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Logout icon
+import WbSunnyIcon from '@mui/icons-material/WbSunny'; 
 
 const App: React.FC = () => {
   const username = useSelector((state: any) => state.user.username);
@@ -21,6 +22,7 @@ const App: React.FC = () => {
     <>
       <AppBar position="fixed" sx={{ backgroundColor: '#0288d1' }}>
         <Toolbar>
+        <WbSunnyIcon sx={{ color: '#FFD54F', fontSize: 30, marginRight: 1 }} />
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Weather App
           </Typography>
