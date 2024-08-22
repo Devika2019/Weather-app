@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: '#0288d1' }}>
+      <AppBar position="fixed" sx={{ backgroundColor: '#0288d1' }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Weather App

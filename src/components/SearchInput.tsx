@@ -100,7 +100,8 @@ const SearchInput: React.FC = () => {
       <Box sx={{ 
 display: 'flex', 
 alignItems: 'center',
-gap: 1 
+gap: 1,
+flexWrap:'wrap'
 }}>
         {selectedCity?.map((cityName: any) => (
           <FormControlLabel
