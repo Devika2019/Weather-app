@@ -9,6 +9,7 @@ import { loadCountries,loadCities } from '../features/countries/countriesSlice';
 const SearchInput: React.FC = () => {
   const [city, setCity] = useState('');
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string[] | null>(null);
   const [selectedCities, setSelectedCities] = useState<string[]>([]);
   const dispatch = useDispatch();
   const weatherData = useSelector((state:any) => state.weather.data || {});
@@ -74,8 +75,15 @@ const SearchInput: React.FC = () => {
         renderInput={(params) => <TextField {...params} label="Select Country" variant="outlined" />}
         onChange={(event, newValue: string | null) => setSelectedCountry(newValue)}
       />
+
+<Autocomplete
+  multiple
+        options={selectedCountryCities}
+        renderInput={(params) => <TextField {...params} label="Select City" variant="outlined" />}
+        onChange={(event, newValue: string[] | null) => setSelectedCity(newValue)}
+      />
          <Box sx={{ marginTop: 2 }}>
-        {selectedCountryCities.map((cityName:any) => (
+        {selectedCity?.map((cityName:any) => (
           <FormControlLabel
             key={cityName}
             control={
@@ -88,35 +96,7 @@ const SearchInput: React.FC = () => {
           />
         ))}
       </Box>
-      {/* <TextField
-        fullWidth
-        label="Search City"
-        variant="outlined"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        sx={{ marginBottom: 2 }}
-      />
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleSearch}
-      >
-        Search
-      </Button>
-      <Box sx={{ marginTop: 2 }}>
-        {Object.keys(weatherData).map((cityName) => (
-          <FormControlLabel
-            key={cityName}
-            control={
-              <Checkbox
-                checked={isCitySelected(cityName)}
-                onChange={() => handleCheckboxChange(cityName)}
-              />
-            }
-            label={cityName}
-          />
-        ))}
-      </Box> */}
+    
     </Box>
   );
 };
