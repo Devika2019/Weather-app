@@ -1,3 +1,61 @@
+# Overview of the Weather App project
+The Weather App begins with a login page where users enter their username and click a submit button. Upon successful login, users are directed to the weather page, featuring two dropdown menus. The first dropdown allows users to search for and select a country, which then populates the second dropdown with cities from that country. Users can select one or multiple cities, and each selected city appears below with a checkbox. The checkbox can be toggled to show or hide the weather information for that city. When more than three cities are selected, the weather information is displayed in a carousel format, allowing horizontal scrolling. If three or fewer cities are selected, the carousel is hidden, and the weather information is shown in a standard view. Upon logging off, all results are cleared, and a fresh page is presented for each new login, initiating the selection process anew.
+
+## Sofware requirement
+Any Integrated Development Environments (IDEs) preferably Visual Studio Code.
+
+## Steps to set up and run the project locally
+1. Clone the Repository
+
+    First, clone the repository from GitHub to local machine.
+
+    `git clone https://github.com/Devika2019/Weather-app.git`
+
+2. Navigate to the Project Directory
+
+    Change to the project directory:
+
+    `cd Weather-app`
+
+3. Configure Environment Variables
+
+    This project has environment variables in .env file. It contains the API key for fetching the data. Please ensure that this is in place.
+
+4. Check the tsconfig.json
+
+    Ensure that the TypeScript configuration file (tsconfig.json) is present.
+
+5. Install Dependencies
+
+    Ensure you have Node.js installed. You can check if it's installed by running:
+
+    `node -v`
+
+      and
+
+    `npm -v`
+
+    If Node.js is installed, you can proceed to install the project's dependencies:
+   
+    `npm install`
+
+6. Run the Development Server
+
+    Start the development server to run the React app. This project include a script for this in the package.json file.
+
+    `npm start`
+
+7. Verify the Project
+
+    Open your web browser and navigate to http://localhost:3000 to see if the app is running correctly.
+
+## Explanation of design choices and architecture
+
+
+## Instructions on how to run tests
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
