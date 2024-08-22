@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from 'react';
-import { TextField, Button, Box, FormControlLabel, Checkbox,Autocomplete } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { TextField, Button, Box, FormControlLabel, Checkbox, Autocomplete } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../store'; // Import AppDispatch
 import { fetchWeather, addCityWeather, removeCityWeather } from '../features/weather/weatherSlice';
 import { WeatherParams, WeatherResponse } from '../features/weather/weatherInterfaces';
-import { loadCountries,loadCities } from '../features/countries/countriesSlice';
+import { loadCountries, loadCities } from '../features/countries/countriesSlice';
 
 const SearchInput: React.FC = () => {
   const [city, setCity] = useState('');
@@ -12,7 +12,7 @@ const SearchInput: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState<string[] | null>(null);
   const [selectedCities, setSelectedCities] = useState<string[]>([]);
   const dispatch = useDispatch();
-  const weatherData = useSelector((state:any) => state.weather.data || {});
+  const weatherData = useSelector((state: any) => state.weather.data || {});
   const countries = useSelector((state: any) => state.countries.countries);
   const isCitySelected = (cityName: string) => selectedCities.includes(cityName);
   const citiesByCountry = useSelector((state: any) => state.countries.citiesByCountry);
@@ -21,14 +21,15 @@ const SearchInput: React.FC = () => {
     (dispatch as AppDispatch)(loadCountries());
   }, [dispatch]);
 
-
   useEffect(() => {
-       if (selectedCountry) {
-        (dispatch as AppDispatch)(loadCities(selectedCountry));
+    if (selectedCountry) {
+      (dispatch as AppDispatch)(loadCities(selectedCountry));
     }
-  }, [selectedCountry, dispatch])
+  }, [selectedCountry, dispatch]);
+
   const countryOptions = countries.map((country: { country: string }) => country.country);
   const selectedCountryCities = selectedCountry ? citiesByCountry[selectedCountry] || [] : [];
+
   const handleSearch = () => {
     if (city.trim()) {
       // Dispatch fetchWeather thunk action
@@ -43,8 +44,6 @@ const SearchInput: React.FC = () => {
         });
     }
   };
-
-
 
   const handleCheckboxChange = (cityName: string) => {
     const updatedSelectedCities = isCitySelected(cityName)
@@ -69,21 +68,24 @@ const SearchInput: React.FC = () => {
   };
 
   return (
-        <Box sx={{ maxWidth: 500, margin: '20px auto', textAlign: 'center' }}>
- <Autocomplete
+    <Box sx={{ maxWidth: 500, margin: '20px auto', textAlign: 'center' }}>
+      <Autocomplete
         options={countryOptions}
         renderInput={(params) => <TextField {...params} label="Select Country" variant="outlined" />}
         onChange={(event, newValue: string | null) => setSelectedCountry(newValue)}
       />
 
-<Autocomplete
-  multiple
+      <Autocomplete
+        multiple
         options={selectedCountryCities}
-        renderInput={(params) => <TextField {...params} label="Select City" variant="outlined" />}
+        value={selectedCity || []}
         onChange={(event, newValue: string[] | null) => setSelectedCity(newValue)}
+        renderTags={() => null} // Hide the selected values
+        renderInput={(params) => <TextField {...params} label="Select City" variant="outlined" />}
       />
-         <Box sx={{ marginTop: 2 }}>
-        {selectedCity?.map((cityName:any) => (
+      
+      <Box sx={{ marginTop: 2 }}>
+        {selectedCity?.map((cityName: any) => (
           <FormControlLabel
             key={cityName}
             control={
@@ -96,7 +98,6 @@ const SearchInput: React.FC = () => {
           />
         ))}
       </Box>
-    
     </Box>
   );
 };
