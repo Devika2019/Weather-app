@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Box, FormControlLabel, Checkbox, Autocomplete } from '@mui/material';
+import { TextField, Button, Box, FormControlLabel, Checkbox, Autocomplete, Typography, Paper } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from '../store'; // Import AppDispatch
+import { AppDispatch } from '../store';
 import { fetchWeather, addCityWeather, removeCityWeather } from '../features/weather/weatherSlice';
 import { WeatherParams, WeatherResponse } from '../features/weather/weatherInterfaces';
 import { loadCountries, loadCities } from '../features/countries/countriesSlice';
@@ -49,14 +49,12 @@ const SearchInput: React.FC = () => {
     const updatedSelectedCities = isCitySelected(cityName)
       ? selectedCities.filter((item) => item !== cityName)
       : [...selectedCities, cityName];
-    
+
     setSelectedCities(updatedSelectedCities);
 
     if (!isCitySelected(cityName)) {
-      const lat = 33.44; // Placeholder latitude
-      const lon = -94.04; // Placeholder longitude
 
-      (dispatch as AppDispatch)(fetchWeather({ city: cityName })) 
+      (dispatch as AppDispatch)(fetchWeather({ city: cityName }))
         .then((result) => {
           if (result.meta.requestStatus === 'fulfilled') {
             dispatch(addCityWeather({ city: cityName, weatherData: result.payload }));
@@ -68,8 +66,23 @@ const SearchInput: React.FC = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 500, margin: '20px auto', textAlign: 'center' }}>
+    <Box sx={{
+      maxWidth: 600,
+      margin: '20px auto',
+      padding: 2,
+      textAlign: 'center',
+      backgroundColor: '#f5f5f5',
+      borderRadius: 2,
+      boxShadow: 3
+    }}>
+      <Typography
+        variant="h5"
+        sx={{ mb: 2, color: '#0277bd', fontWeight: 'bold' }}
+      >
+        Search and Select Cities
+      </Typography>
       <Autocomplete
+        sx={{ marginBottom: 2 }}
         options={countryOptions}
         renderInput={(params) => <TextField {...params} label="Select Country" variant="outlined" />}
         onChange={(event, newValue: string | null) => setSelectedCountry(newValue)}
@@ -83,8 +96,12 @@ const SearchInput: React.FC = () => {
         renderTags={() => null} // Hide the selected values
         renderInput={(params) => <TextField {...params} label="Select City" variant="outlined" />}
       />
-      
-      <Box sx={{ marginTop: 2 }}>
+
+      <Box sx={{ 
+display: 'flex', 
+alignItems: 'center',
+gap: 1 
+}}>
         {selectedCity?.map((cityName: any) => (
           <FormControlLabel
             key={cityName}
