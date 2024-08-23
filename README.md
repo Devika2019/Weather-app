@@ -67,4 +67,6 @@ Run the below command to execute all test cases. It launches the test runner in 
 
  `npm run test`
 
-
+## Screenshots of application
+![Alt text](/LoginPage.PNG?raw=true "Optional Title") 
+![Alt text](/WeatherDisplay.PNG?raw=true "Optional Title")
