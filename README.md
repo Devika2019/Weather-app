@@ -52,6 +52,7 @@ Any Integrated Development Environments (IDEs) preferably Visual Studio Code.
 
 ## Design choice and architecture
 ![Alt text](/Diagram.png?raw=true "Optional Title")
+
 In designing the Weather App, modular and scalable architecture was prioritized to ensure an optimal user experience and maintainability. 
 - ReactJS was chosen for its component-based structure, which facilitates reusable and isolated components, essential for managing the dynamic nature of the app's UI elements such as dropdown menus, city checkboxes, and weather information displays.
 - TypeScript enhances this setup with strong typing, improving code reliability and easing debugging.
