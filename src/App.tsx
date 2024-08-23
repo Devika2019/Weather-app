@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Typography, Box, AppBar, Toolbar, IconButton, Paper } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from './features/user/userSlice'; // Ensure correct import path
-import { clearWeatherData } from './features/weather/weatherSlice'; // Import the action
+import { logout } from './features/user/userSlice'; 
+import { clearWeatherData } from './features/weather/weatherSlice';
 import SearchInput from './components/SearchInput';
 import WeatherDisplay from './components/WeatherDisplay';
 import Login from './components/Login';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Logout icon
+import ExitToAppIcon from '@mui/icons-material/ExitToApp'; 
 import WbSunnyIcon from '@mui/icons-material/WbSunny'; 
 
 const App: React.FC = () => {

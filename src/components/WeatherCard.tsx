@@ -5,7 +5,7 @@ import { WeatherResponse } from '../features/weather/weatherInterfaces';
 interface WeatherCardProps {
   weatherData: WeatherResponse;
 }
-
+// Display weather data in cards
 const WeatherCard: React.FC<WeatherCardProps> = ({ weatherData }) => {
   const { main, weather, wind, name } = weatherData;
   const { temp, humidity } = main;

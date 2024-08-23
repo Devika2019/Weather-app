@@ -31,8 +31,7 @@ export const loadCountries = createAsyncThunk(
   async () => {
     const countries = await fetchCountries();
     return countries;
-     //return countries.map((x: { country: string }) => x.country);
-  }
+     }
 );
 
 export const loadCities = createAsyncThunk(

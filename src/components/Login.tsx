@@ -7,6 +7,7 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
 
+  //handle login event
   const handleLogin = () => {
     if (username.trim()) {
       dispatch(login(username));

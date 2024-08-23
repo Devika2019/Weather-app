@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import weatherReducer from '../../features/weather/weatherSlice'; // Ensure correct path
-import WeatherDisplay from '../../components/WeatherDisplay'; // Ensure correct path
+
+import WeatherDisplay from '../../components/WeatherDisplay';
 
 // Mock matchMedia
 global.matchMedia = jest.fn().mockImplementation(() => ({

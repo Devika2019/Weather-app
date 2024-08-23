@@ -4,6 +4,7 @@ import { WeatherParams, WeatherResponse } from '../features/weather/weatherInter
 const API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY as string;
 
+//fetcing weather data based on city passed as an argument
 export const fetchWeather = async ({ city }: WeatherParams): Promise<WeatherResponse> => {
   console.log("api", API_KEY);
   try {

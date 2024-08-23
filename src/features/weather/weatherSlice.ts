@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchWeather as fetchWeatherService } from '../../services/weatherService';
 import { WeatherParams, WeatherResponse } from './weatherInterfaces';
-import { logout } from '../user/userSlice'; // Adjust the import path as necessary
+import { logout } from '../user/userSlice'; 
 
 export interface WeatherState {
   data: { [city: string]: WeatherResponse } | null;

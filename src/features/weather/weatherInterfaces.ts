@@ -15,6 +15,6 @@ export interface WeatherParams {
       icon: string;
     }>;
     name: string; // City name
-    timezone: number; // Timezone offset in seconds
+    timezone: number; 
   }
   

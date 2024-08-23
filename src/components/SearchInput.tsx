@@ -30,21 +30,7 @@ const SearchInput: React.FC = () => {
   const countryOptions = countries.map((country: { country: string }) => country.country);
   const selectedCountryCities = selectedCountry ? citiesByCountry[selectedCountry] || [] : [];
 
-  const handleSearch = () => {
-    if (city.trim()) {
-      // Dispatch fetchWeather thunk action
-      (dispatch as AppDispatch)(fetchWeather({ city }))
-        .then((result) => {
-          if (fetchWeather.fulfilled.match(result)) {
-            // Optionally, you could add logic here if needed
-          }
-        })
-        .catch((error) => {
-          console.error('Failed to fetch weather data', error);
-        });
-    }
-  };
-
+// To handle the selection change in checkbox
   const handleCheckboxChange = (cityName: string) => {
     const updatedSelectedCities = isCitySelected(cityName)
       ? selectedCities.filter((item) => item !== cityName)

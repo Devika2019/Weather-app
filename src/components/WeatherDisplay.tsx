@@ -23,7 +23,7 @@ const WeatherDisplay: React.FC = () => {
   if (error) return <Typography color="error">{error}</Typography>;
 
   const settings = {
-    dots: false, // Disable dots
+    dots: false, 
     infinite: true,
     speed: 500,
     slidesToShow: 3,
