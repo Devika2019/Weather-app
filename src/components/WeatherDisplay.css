@@ -30,8 +30,8 @@
 }
 
 .slick-prev, .slick-next {
-  width: 20px; /* Adjust size as needed */
-  height: 20px; /* Adjust size as needed */
+  width: 19px; /* Adjust size as needed */
+  height: 19px; /* Adjust size as needed */
   z-index: 1; /* Ensures arrows are on top */
 }
 

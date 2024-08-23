@@ -9,7 +9,7 @@ import './WeatherDisplay.css';
 const Arrow = ({ className, style, onClick }: any) => (
   <div
     className={className}
-    style={{ ...style, display: 'block', background: 'black', borderRadius: '50%' }}
+    style={{ ...style, display: 'block', background: 'blue', borderRadius: '50%' }}
     onClick={onClick}
   />
 );
